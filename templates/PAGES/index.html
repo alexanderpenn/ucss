@@ -1,0 +1,510 @@
+{% load static %}
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>College Mover</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons  -->
+
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+  <!--========================== Header  ============================-->
+  <header id="header">
+
+    <div class="container">
+
+      <div class="logo float-left">
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>College Mover</span></a></h1>
+        <!-- <a href="#header" class="scrollto"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a> -->
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#intro">Home</a></li>
+          <li><a href="#whyus">Why Us</a></li>
+          <li><a href="#services">How it Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#faq">Contact Us</a></li>
+        </ul>
+      </nav><!-- .main-nav -->
+
+    </div>
+  </header><!-- #header -->
+
+  <!--========================= Intro Section ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+      <div class="row justify-content-center align-self-center">
+        <div class="col-md-6 intro-info order-md-first order-last">
+          <h2>Professional and Effortless <br> Summer Storage</span></h2>
+          <div>
+            <a href="#about" class="btn-get-started scrollto" data-toggle="modal" data-target="#exampleModalCenter">Get Started</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 intro-img order-md-last order-first">
+          <img src="{% static 'img/intro-img.svg'%}" alt="" class="img-fluid">
+        </div>
+      </div>
+
+    </div>
+  <!-- #intro -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">We'll Be in Touch With You Shortly</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'sendemail'%}" method="POST">
+            {% csrf_token %}
+            <!-- django bootstrap form plugin !-->
+            {{ form | crispy }}
+            <button type="submit" class="btn" id="submission-btn"
+            style=
+                  "font-family: 'Montserrat', sans-serif;
+                  font-size: 13px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  display: inline-block;
+                  padding: 10px 32px;
+                  border-radius: 4px;
+                  transition: 0.5s;
+                  color: #fff;
+                  background: #1bb1dc;">Submit</button>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+      Why Us Section
+    ============================-->
+    <section id="why-us" class="wow fadeIn">
+      <div class="container-fluid">
+
+        <header class="section-header">
+          <h3>Why Us?</h3>
+          <p>Here are just some of the reasons our clients choose us!</p>
+        </header>
+
+        <div class="row" id="no-arg">
+
+          <div class="why-us-content">
+            <div id="whyus" class="row">
+              <div class="col-lg-6 col-6 ">
+                <div class="features wow bounceInUp clearfix">
+                  <h4>We Handle Everything</h4>
+                  <p>The end of the school year is stressful, and we ensure that having to move doesn't add anything extra to your plate. Our team delivers you all of the moving supplies you need ahead of time. We pick up your boxes directly from
+                    your place of residence, and return it to wherever you would like.</p>
+                </div>
+
+                <div class="features wow bounceInUp clearfix">
+                  <h4>Professional & Insured Movers</h4>
+                  <p>All of our team members are professional, courteous, and happy to serve you. We pre-vet and maintain close contact with everyone on the team to ensure our clients receive exceptional service.</p>
+                </div>
+
+              </div>
+
+              <div class="col-lg-6 col-6 ">
+                <div class="features wow bounceInUp clearfix">
+                  <h4>Lowest Prices - Guaranteed</h4>
+                  <p>Other companies may charge exorbitant fees for a subpar service, but not us. We leverage our scale across multiple universities and our logistical technology to pass on our lower costs to you in the form of savings while still
+                    maintaining an exceptional service. If you ever find a competitor with a lower price than us, we will match it.</p>
+                </div>
+                <div class="features wow bounceInUp clearfix">
+                  <h4>Secure & Climate Protected Facilities</h4>
+                  <p>We have thousands of square feet reserved in secure, climate controlled, indoor facilities to ensure that when you receive your stuff back, you receive it in great condition.</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">750</span>
+            <p>Satisfied Clients And Counting</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">5</span>
+            <p>Campuses</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">1,364</span>
+            <p>Hours Of Support</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">18</span>
+            <p>Hard Workers</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!--========================== Services Section ============================-->
+    <section id="services" class="section-bg">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>How It Works</h3>
+          <p>The entire process is faster than ordering a pizza.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #fceef3;"></div>
+              <!--<i class="ion-ios-analytics-outline" style="color: #ff689b;"></i>
+                  <i class="ion-ios-bookmarks-outline" style="color: #e98e06;"></i>
+                    <i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i>
+                    <i class="ion-ios-speedometer-outline" style="color:#41cf2e;">
+                  >-->
+              <h4 class="title"><a href="">Sign Up</a></h4>
+              <p class="description">Sign up on your school page and pay the deposit. You can ask us any questions, and one of our team members will be personally assigned to your case to ensure you are as delighted as all of our previous customers.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #fff0da;"></div>
+              <h4 class="title"><a href="">We Bring Your Moving Supplies</a></h4>
+              <p class="description">We deliver your boxes and tape (if you request them) before your pickup date. You can spend more time studying and less time stressing!</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #e6fdfc;"></div>
+              <h4 class="title"><a href="">We Pick Everything Up</a></h4>
+              <p class="description">Pack all your items into boxes and sit back and relax as we pick them up from your doorstep! You will only be billed for what we pick up. </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="box">
+              <div class="icon" style="background: #eafde7;"></i></div>
+              <h4 class="title"><a href="">We Bring Everything Back</a></h4>
+              <p class="description">While, you've been crushing your summer internship, travelling abroad, or doing whatever you chose to do over the summer, you can rest assured knowing your possessions are safe and secure. When it comes time to
+                return to campus, we will deliver your items right to your doorstep.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+
+    <!--==========================
+      Clients Section
+
+    <section id="testimonials">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Testimonials</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="owl-carousel testimonials-carousel wow fadeInUp">
+
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonial-1.jpg'%}" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <p>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                </p>
+              </div>
+
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonial-2.jpg'%}" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <p>
+                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                </p>
+              </div>
+
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonial-3.jpg'%}" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <p>
+                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                </p>
+              </div>
+
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonial-4.jpg'%}" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+                <p>
+                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </section>============================-->
+
+
+
+    <!--==========================
+      Frequently Asked Questions Section
+    ============================-->
+    <section id="faq">
+      <div class="container">
+        <header class="section-header">
+          <h3>Frequently Asked Questions</h3>
+          <p>If you don't see your question here, fill out our contact form, and we will get back to you ASAP!</p>
+        </header>
+
+        <ul id="faq-list" class="wow fadeInUp">
+          <li>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">What items can I store?<i class="ion-android-remove"></i></a>
+            <div id="faq1" class="collapse" data-parent="#faq-list">
+              <p>
+                We'll pick up nearly anything you have such as furniture, TV's, mini fridges and bicycles, with a couple exceptions, no live animals or illegal items please!
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">How does pricing work?<i class="ion-android-remove"></i></a>
+            <div id="faq2" class="collapse" data-parent="#faq-list">
+              <p>
+                Storage pricing is per item per semester, with summer considered as a semester. You only pay for the items you store. Pricing for items is split into a 5-tiers based on size and includes pickup & delivery on one one of our featured
+                dates.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">Are my items insured?<i class="ion-android-remove"></i></a>
+            <div id="faq3" class="collapse" data-parent="#faq-list">
+              <p>
+                Items placed in storage are covered for up to $100. Electronics need to be in original packaging to be covered under our insurance.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq4" class="collapsed">Who does the moving? <i class="ion-android-remove"></i></a>
+            <div id="faq4" class="collapse" data-parent="#faq-list">
+              <p>
+                We send professional movers to collect your items and bring them into storage. We don’t just hire any Joe Schmo to move your stuff. Our moving teams have been around the block, and we ensure your belongings' safety and security
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq5" class="collapsed">Do I need to know how many boxes I need to store? <i class="ion-android-remove"></i></a>
+            <div id="faq5" class="collapse" data-parent="#faq-list">
+              <p>
+                Nope! We understand it's difficult to estimate how much you need to store and how many boxes you'll use. We bring enough supplies to ensure you will en ough to pack whatever you would like, and whatever you don't use, we will take
+                back with us. You are only charged for how many boxes you fill.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section><!-- #faq -->
+
+    <!--==========================
+      Pricing Section
+    ============================-->
+    <section id="pricing" class="wow fadeInUp section-bg">
+
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Pricing</h3>
+          <p>Here are typical prices for just a few of the many items we store. Rest assured knowing our Clients Save an Average of 37% Over the Competition.</p>
+          <p>Have a question about a specific item? Fill out our contact form or e-mail us, and we will get back to you ASAP!</p>
+        </header>
+
+        <div class="row flex-items-xs-middle flex-items-xs-center">
+
+          <!-- Basic Plan  -->
+          <div class="col-xs-12 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">
+                  Boxes & Small Objects</h4>
+                <p>Starting At...</p>
+                <h3><span class="currency">$</span>39</h3>
+              </div>
+              <div class="card-block">
+                <ul class="list-group">
+                  <li class="list-group-item">Odio animi voluptates</li>
+                  <li class="list-group-item">Small Furniture: Lamps, Nighstands, Etc...</li>
+                  <li class="list-group-item">Et perspiciatis suscipit</li>
+                  <li class="list-group-item">24/7 Support System</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regular Plan  -->
+          <div class="col-xs-12 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">
+                  Medium Objects</h4>
+                <p>Starting At...</p>
+                <h3><span class="currency">$</span>59</h3>
+              </div>
+              <div class="card-block">
+                <ul class="list-group">
+                  <li class="list-group-item">Odio animi voluptates</li>
+                  <li class="list-group-item">Inventore quisquam et</li>
+                  <li class="list-group-item">Et perspiciatis suscipit</li>
+                  <li class="list-group-item">24/7 Support System</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium Plan  -->
+          <div class="col-xs-12 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">
+                  Large Objects
+                </h4>
+                <p>Starting At...</p>
+                <h3><span class="currency">$</span>79</h3>
+              </div>
+              <div class="card-block">
+                <ul class="list-group">
+                  <li class="list-group-item">Odio animi voluptates</li>
+                  <li class="list-group-item">Inventore quisquam et</li>
+                  <li class="list-group-item">Et perspiciatis suscipit</li>
+                  <li class="list-group-item">24/7 Support System</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- #pricing -->
+
+  </main>
+
+
+  <footer id="footer" class="section-bg">
+    <!--==========================
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="row">
+          <div class="footer-links">
+            <h4>Contact Us</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>============================-->
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>University City Summer Storage</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/mobile-nav/mobile-nav.js' %}"></script>
+  <script src="{% static 'lib//wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="{% static 'contactform/contactform.js' %}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
