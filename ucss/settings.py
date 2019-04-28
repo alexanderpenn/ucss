@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['206.189.188.160',
                  '*',
-                 'http://universitycitystorage.com',
                  ]
 
 
